@@ -34,7 +34,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -56,17 +55,13 @@
       color: var(--text);
       text-decoration: none;
     }
-
-    .nav-logo span {
-      color: var(--yellow);
-    }
+    .nav-logo span { color: var(--yellow); }
 
     .nav-links {
       display: flex;
       gap: 32px;
       list-style: none;
     }
-
     .nav-links a {
       font-size: 14px;
       font-weight: 500;
@@ -75,22 +70,15 @@
       transition: color 0.2s;
       letter-spacing: -0.2px;
     }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
 
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--text);
-    }
-
-    /* LAYOUT */
     .container {
       max-width: 1100px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
-    section {
-      padding: 80px 0;
-    }
+    section { padding: 80px 0; }
 
     .section-label {
       font-size: 12px;
@@ -100,7 +88,6 @@
       color: var(--muted);
       margin-bottom: 8px;
     }
-
     .section-title {
       font-size: 32px;
       font-weight: 800;
@@ -110,10 +97,7 @@
     }
 
     /* HERO */
-    #hero {
-      padding-top: 120px;
-      padding-bottom: 80px;
-    }
+    #hero { padding-top: 120px; padding-bottom: 80px; }
 
     .hero-grid {
       display: grid;
@@ -135,15 +119,12 @@
       color: #92400E;
       margin-bottom: 24px;
     }
-
     .hero-badge-dot {
-      width: 7px;
-      height: 7px;
+      width: 7px; height: 7px;
       border-radius: 50%;
       background: #22C55E;
       animation: pulse 2s infinite;
     }
-
     @keyframes pulse {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.4; }
@@ -157,13 +138,10 @@
       color: var(--text);
       margin-bottom: 20px;
     }
-
-    .hero-title span {
-      color: var(--yellow);
-    }
+    .hero-title span { color: var(--yellow); }
 
     .hero-subtitle {
-      font-size: 18px;
+      font-size: 17px;
       color: var(--muted);
       line-height: 1.7;
       margin-bottom: 32px;
@@ -189,7 +167,6 @@
       text-decoration: none;
       transition: opacity 0.2s;
     }
-
     .btn-primary:hover { opacity: 0.85; }
 
     .btn-secondary {
@@ -207,16 +184,28 @@
       box-shadow: var(--shadow);
       transition: box-shadow 0.2s;
     }
-
     .btn-secondary:hover { box-shadow: var(--shadow-hover); }
 
-    /* STAT CARDS */
+    .btn-resume {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--yellow);
+      color: #111;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn-resume:hover { opacity: 0.88; }
+
     .stat-cards {
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
-
     .stat-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -224,21 +213,18 @@
       padding: 20px 24px;
       box-shadow: var(--shadow);
     }
-
     .stat-card-value {
       font-size: 28px;
       font-weight: 800;
       letter-spacing: -1px;
       color: var(--text);
     }
-
     .stat-card-label {
       font-size: 13px;
       color: var(--muted);
       font-weight: 500;
       margin-top: 2px;
     }
-
     .stat-card-accent {
       border-left: 3px solid var(--yellow);
       padding-left: 18px;
@@ -250,38 +236,21 @@
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
-
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 64px;
       align-items: start;
     }
-
     .about-text p {
       font-size: 16px;
       color: var(--muted);
       line-height: 1.8;
       margin-bottom: 16px;
     }
-
-    .about-text p strong {
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .about-info {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .info-row {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
+    .about-text p strong { color: var(--text); font-weight: 600; }
+    .about-info { display: flex; flex-direction: column; gap: 16px; }
+    .info-row { display: flex; flex-direction: column; gap: 4px; }
     .info-label {
       font-size: 11px;
       font-weight: 700;
@@ -289,25 +258,47 @@
       text-transform: uppercase;
       color: var(--muted);
     }
+    .info-value { font-size: 15px; font-weight: 600; color: var(--text); }
+    .info-divider { height: 1px; background: var(--border); }
 
-    .info-value {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text);
+    /* ACHIEVEMENTS */
+    #achievements {
+      background: var(--yellow-pale);
+      border-top: 1px solid var(--yellow-border);
+      border-bottom: 1px solid var(--yellow-border);
     }
-
-    .info-divider {
-      height: 1px;
-      background: var(--border);
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .achievement-card {
+      background: #fff;
+      border: 1px solid var(--yellow-border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .achievement-card.visible { opacity: 1; transform: translateY(0); }
+    .achievement-icon { font-size: 28px; margin-bottom: 12px; }
+    .achievement-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      letter-spacing: -0.2px;
+    }
+    .achievement-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
     }
 
     /* EXPERIENCE */
-    .exp-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
+    .exp-list { display: flex; flex-direction: column; gap: 16px; }
     .exp-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -315,20 +306,12 @@
       padding: 28px 32px;
       box-shadow: var(--shadow);
       border-left: 4px solid var(--yellow);
-      transition: box-shadow 0.2s;
       opacity: 0;
       transform: translateY(16px);
       transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.2s;
     }
-
-    .exp-card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .exp-card:hover {
-      box-shadow: var(--shadow-hover);
-    }
+    .exp-card.visible { opacity: 1; transform: translateY(0); }
+    .exp-card:hover { box-shadow: var(--shadow-hover); }
 
     .exp-header {
       display: flex;
@@ -337,14 +320,7 @@
       margin-bottom: 6px;
       gap: 16px;
     }
-
-    .exp-role {
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-      color: var(--text);
-    }
-
+    .exp-role { font-size: 17px; font-weight: 700; letter-spacing: -0.3px; color: var(--text); }
     .exp-period {
       font-size: 12px;
       font-weight: 600;
@@ -356,27 +332,30 @@
       white-space: nowrap;
       flex-shrink: 0;
     }
+    .exp-company { font-size: 14px; font-weight: 600; color: var(--yellow); margin-bottom: 12px; }
+    .exp-desc { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 16px; }
+    .exp-desc strong { color: var(--text); font-weight: 600; }
 
-    .exp-company {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--yellow);
-      margin-bottom: 12px;
-    }
-
-    .exp-desc {
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 16px;
-    }
-
-    .exp-tags {
+    .exp-impact {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
+      margin-bottom: 16px;
+    }
+    .impact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #065F46;
+      background: #ECFDF5;
+      border: 1px solid #6EE7B7;
+      border-radius: 100px;
+      padding: 3px 10px;
     }
 
+    .exp-tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .tag {
       font-size: 12px;
       font-weight: 600;
@@ -393,54 +372,39 @@
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
-
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 12px;
     }
-
     .skill-card {
       background: var(--bg);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 20px;
+      padding: 18px 16px;
       display: flex;
-      flex-direction: column;
-      gap: 8px;
+      align-items: center;
+      gap: 12px;
       opacity: 0;
       transform: translateY(10px);
       transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.2s;
     }
+    .skill-card.visible { opacity: 1; transform: translateY(0); }
+    .skill-card:hover { box-shadow: var(--shadow-hover); background: var(--card); }
 
-    .skill-card.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .skill-logo {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
+    .skill-logo img { width: 32px; height: 32px; object-fit: contain; }
 
-    .skill-card:hover {
-      box-shadow: var(--shadow-hover);
-      background: var(--card);
-    }
-
-    .skill-icon {
-      font-size: 22px;
-    }
-
-    .skill-name {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text);
-      letter-spacing: -0.2px;
-    }
-
-    .skill-type {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
+    .skill-info { display: flex; flex-direction: column; gap: 2px; }
+    .skill-name { font-size: 13px; font-weight: 700; color: var(--text); letter-spacing: -0.2px; }
+    .skill-type { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; }
 
     /* PROJECTS */
     .projects-grid {
@@ -448,7 +412,6 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 16px;
     }
-
     .project-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -462,25 +425,11 @@
       transform: translateY(16px);
       transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.2s;
     }
-
-    .project-card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .project-card:hover {
-      box-shadow: var(--shadow-hover);
-    }
-
-    .project-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+    .project-card.visible { opacity: 1; transform: translateY(0); }
+    .project-card:hover { box-shadow: var(--shadow-hover); }
 
     .project-icon {
-      width: 40px;
-      height: 40px;
+      width: 40px; height: 40px;
       background: var(--yellow-pale);
       border: 1px solid var(--yellow-border);
       border-radius: 10px;
@@ -489,39 +438,14 @@
       justify-content: center;
       font-size: 18px;
     }
-
-    .project-link {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--muted);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .project-link:hover { color: var(--text); }
-
-    .project-name {
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-      color: var(--text);
-    }
-
-    .project-desc {
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.7;
-      flex: 1;
-    }
+    .project-name { font-size: 17px; font-weight: 700; letter-spacing: -0.3px; color: var(--text); }
+    .project-desc { font-size: 14px; color: var(--muted); line-height: 1.7; flex: 1; }
 
     /* CONTACT */
     #contact {
       background: var(--card);
       border-top: 1px solid var(--border);
     }
-
     .contact-card {
       background: var(--text);
       border-radius: 16px;
@@ -531,26 +455,9 @@
       gap: 40px;
       align-items: center;
     }
-
-    .contact-title {
-      font-size: 28px;
-      font-weight: 800;
-      letter-spacing: -0.8px;
-      color: #fff;
-      margin-bottom: 8px;
-    }
-
-    .contact-sub {
-      font-size: 15px;
-      color: rgba(255,255,255,0.6);
-    }
-
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
+    .contact-title { font-size: 28px; font-weight: 800; letter-spacing: -0.8px; color: #fff; margin-bottom: 8px; }
+    .contact-sub { font-size: 15px; color: rgba(255,255,255,0.6); }
+    .contact-links { display: flex; flex-direction: column; gap: 12px; }
     .contact-link {
       display: flex;
       align-items: center;
@@ -561,12 +468,9 @@
       text-decoration: none;
       transition: color 0.2s;
     }
-
     .contact-link:hover { color: var(--yellow); }
-
     .contact-link-icon {
-      width: 32px;
-      height: 32px;
+      width: 32px; height: 32px;
       background: rgba(255,255,255,0.1);
       border-radius: 8px;
       display: flex;
@@ -575,36 +479,26 @@
       font-size: 14px;
     }
 
-    /* FOOTER */
     footer {
       padding: 24px 0;
       border-top: 1px solid var(--border);
       text-align: center;
     }
+    footer p { font-size: 13px; color: var(--muted); }
 
-    footer p {
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    /* FADE-IN */
     .fade-in {
       opacity: 0;
       transform: translateY(16px);
       transition: opacity 0.5s ease, transform 0.5s ease;
     }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* RESPONSIVE */
     @media (max-width: 900px) {
       .hero-grid { grid-template-columns: 1fr; }
       .stat-cards { flex-direction: row; flex-wrap: wrap; }
       .stat-card { flex: 1; min-width: 140px; }
       .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .achievements-grid { grid-template-columns: 1fr; }
       .skills-grid { grid-template-columns: repeat(2, 1fr); }
       .projects-grid { grid-template-columns: 1fr; }
       .contact-card { grid-template-columns: 1fr; }
@@ -612,22 +506,22 @@
       nav { padding: 0 20px; }
       .nav-links { gap: 20px; }
     }
-
     @media (max-width: 600px) {
       .nav-links { display: none; }
       .hero-title { font-size: 30px; }
       section { padding: 56px 0; }
       .contact-card { padding: 28px; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <a href="#hero" class="nav-logo">parth<span>.</span></a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
+      <li><a href="#achievements">Highlights</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
@@ -642,16 +536,17 @@
         <div>
           <div class="hero-badge">
             <div class="hero-badge-dot"></div>
-            Available for interesting opportunities
+            Open to Backend SDE opportunities
           </div>
           <h1 class="hero-title">
             Parth<br>Mangal<span>.</span>
           </h1>
           <p class="hero-subtitle">
-            Software Engineer II at Blinkit, building high-throughput ad-tech infrastructure at scale. Passionate about distributed systems, data pipelines, and impactful product engineering.
+            Backend engineer building high-throughput ad-tech infrastructure at Blinkit. I design distributed systems that process millions of events — Kafka pipelines, gRPC services, and data platforms that work at scale.
           </p>
           <div class="hero-cta">
-            <a href="#experience" class="btn-primary">View Experience ↓</a>
+            <a href="https://drive.google.com/file/d/1o_3OsIAllbi-Nl8vUIm1uY5-ppbrz1Kt/view?usp=drive_link" target="_blank" class="btn-resume">↓ Download Resume</a>
+            <a href="#experience" class="btn-primary">View Experience</a>
             <a href="mailto:mangal.arpit.19@gmail.com" class="btn-secondary">Get in Touch</a>
           </div>
         </div>
@@ -662,7 +557,7 @@
           </div>
           <div class="stat-card stat-card-accent fade-in">
             <div class="stat-card-value">SDE II</div>
-            <div class="stat-card-label">Blinkit (Zomato Group)</div>
+            <div class="stat-card-label">Blinkit · Zomato Group</div>
           </div>
           <div class="stat-card stat-card-accent fade-in">
             <div class="stat-card-value">Ad Tech</div>
@@ -681,13 +576,13 @@
           <p class="section-label">About Me</p>
           <h2 class="section-title">Building systems that scale.</h2>
           <p>
-            I'm a Software Engineer II at <strong>Blinkit</strong>, where I work on ad-tech infrastructure powering off-platform and on-platform advertising at scale. I build the plumbing — Kafka pipelines, gRPC services, Airflow DAGs, and FastAPI backends — that makes advertising products work reliably for brands advertising on Blinkit.
+            I'm a Backend SDE II at <strong>Blinkit</strong>, working on ad-tech infrastructure that powers off-platform and on-platform advertising. I build the plumbing — Kafka pipelines, gRPC services, Airflow DAGs, and FastAPI backends — that makes advertising products work reliably at scale.
           </p>
           <p>
-            Previously at <strong>Zomato</strong>, I worked on Social Ads (off-platform Meta campaigns), dining catalog pipelines, and audience segmentation. Before that at <strong>Gameskraft</strong>, I engineered the Rewards &amp; Referrals microservices for Pocket52, a real-money poker platform with high-concurrency requirements.
+            Previously at <strong>Zomato</strong>, I built Social Ads (off-platform Meta campaigns), dining catalog pipelines, and audience segmentation systems. Before that at <strong>Gameskraft</strong>, I engineered high-concurrency Rewards &amp; Referrals microservices for Pocket52, a real-money poker platform.
           </p>
           <p>
-            I graduated from <strong>IIIT Kota</strong> with a BTech in Computer Engineering (2019–2023) and enjoy working at the intersection of data engineering, distributed systems, and product impact.
+            I graduated from <strong>IIIT Kota</strong> with a BTech in Computer Engineering (2019–2023). I enjoy working at the intersection of data engineering, distributed systems, and product impact.
           </p>
         </div>
         <div class="about-info fade-in">
@@ -703,12 +598,12 @@
           <div class="info-divider"></div>
           <div class="info-row">
             <span class="info-label">Education</span>
-            <span class="info-value">IIIT Kota — BTech CS</span>
+            <span class="info-value">IIIT Kota — BTech CS, 2023</span>
           </div>
           <div class="info-divider"></div>
           <div class="info-row">
-            <span class="info-label">Graduation</span>
-            <span class="info-value">2023</span>
+            <span class="info-label">Specialisation</span>
+            <span class="info-value">Backend · Distributed Systems · Ad Tech</span>
           </div>
           <div class="info-divider"></div>
           <div class="info-row">
@@ -717,9 +612,49 @@
           </div>
           <div class="info-divider"></div>
           <div class="info-row">
-            <span class="info-label">Focus Areas</span>
-            <span class="info-value">Ad Tech · Distributed Systems · Data Pipelines</span>
+            <span class="info-label">Resume</span>
+            <span class="info-value"><a href="https://drive.google.com/file/d/1o_3OsIAllbi-Nl8vUIm1uY5-ppbrz1Kt/view?usp=drive_link" target="_blank" style="color:var(--yellow);text-decoration:none;font-weight:700;">View / Download ↗</a></span>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
+    <div class="container">
+      <p class="section-label">Key Highlights</p>
+      <h2 class="section-title">Wins & Recognition</h2>
+      <div class="achievements-grid">
+        <div class="achievement-card">
+          <div class="achievement-icon">🚀</div>
+          <div class="achievement-title">Promoted to SDE II</div>
+          <div class="achievement-desc">Promoted within the Zomato Group after demonstrating strong ownership on Social Ads and ad-tech infrastructure across both Zomato and Blinkit.</div>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-icon">⚡</div>
+          <div class="achievement-title">Launched Brand Central</div>
+          <div class="achievement-desc">Contributed to building Blinkit's self-serve advertising platform from the ground up — enabling brands to independently run and manage on-platform ad campaigns.</div>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-icon">📡</div>
+          <div class="achievement-title">MediaMax — Off-Platform Ads</div>
+          <div class="achievement-desc">Built Go/gRPC services and Kafka pipelines for Blinkit's off-platform advertising product, enabling Meta and Google campaign delivery using first-party audience data.</div>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-icon">📊</div>
+          <div class="achievement-title">Brand Insights Dashboard</div>
+          <div class="achievement-desc">Designed and shipped a real-time analytics dashboard surfacing Share of Voice and Add-to-Cart metrics — giving advertisers visibility into campaign performance.</div>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-icon">🃏</div>
+          <div class="achievement-title">Pocket52 Rewards System</div>
+          <div class="achievement-desc">Engineered high-concurrency Rewards &amp; Referrals microservices at Gameskraft handling transactional flows for a real-money poker platform at scale.</div>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-icon">🎓</div>
+          <div class="achievement-title">Pre-Placement Offer</div>
+          <div class="achievement-desc">Converted Gameskraft internship into a full-time offer — joined as a full-time Software Engineer immediately after graduating from IIIT Kota in 2023.</div>
         </div>
       </div>
     </div>
@@ -737,10 +672,15 @@
             <div class="exp-role">Software Engineer II</div>
             <div class="exp-period">Jul 2025 – Present</div>
           </div>
-          <div class="exp-company">Blinkit · Full-time</div>
+          <div class="exp-company">Blinkit · Full-time · Gurugram</div>
           <p class="exp-desc">
-            Building ad-tech infrastructure for Blinkit's advertising platform. Working on <strong>MediaMax</strong> — off-platform advertising across Meta and Google — and <strong>Brand Central</strong>, a self-serve on-platform ads platform built with Python/FastAPI. Also developed <strong>Brand Insights</strong>, a real-time dashboard surfacing Share of Voice and Add-to-Cart metrics using Celery and async data pipelines. Contributed to high-throughput Kafka-based event pipelines and Airflow DAGs for campaign delivery.
+            Building ad-tech infrastructure for Blinkit's advertising platform. Working on <strong>MediaMax</strong> — off-platform advertising across Meta and Google using Blinkit's first-party audience data — and <strong>Brand Central</strong>, a self-serve on-platform ads platform built with Python/FastAPI. Developed <strong>Brand Insights</strong>, a real-time analytics dashboard surfacing Share of Voice and Add-to-Cart metrics via Celery workers and Airflow DAGs.
           </p>
+          <div class="exp-impact">
+            <span class="impact-pill">⚡ High-throughput Kafka event pipelines</span>
+            <span class="impact-pill">📦 Self-serve ads platform from 0→1</span>
+            <span class="impact-pill">📊 Real-time SOV & ATC metrics</span>
+          </div>
           <div class="exp-tags">
             <span class="tag">Go</span>
             <span class="tag">gRPC</span>
@@ -758,10 +698,15 @@
             <div class="exp-role">Software Engineer</div>
             <div class="exp-period">Aug 2024 – Jul 2025</div>
           </div>
-          <div class="exp-company">Zomato · Full-time</div>
+          <div class="exp-company">Zomato · Full-time · Gurugram</div>
           <p class="exp-desc">
-            Worked on <strong>Social Ads</strong> — Zomato's off-platform advertising product leveraging Meta's advertising APIs. Built and maintained dining catalog data pipelines, audience segmentation systems, and Meta Conversions API attribution flows. Developed reliable Go services with Kafka for high-throughput event streaming and processing across ad campaign workflows.
+            Worked on <strong>Social Ads</strong> — Zomato's off-platform advertising product powered by Meta's Ads APIs. Built and maintained dining catalog data pipelines, audience segmentation systems, and Meta Conversions API attribution flows. Developed reliable Go services with Kafka for high-throughput event streaming across ad campaign workflows.
           </p>
+          <div class="exp-impact">
+            <span class="impact-pill">🎯 Meta Conversions API attribution</span>
+            <span class="impact-pill">📂 Dining catalog data pipelines</span>
+            <span class="impact-pill">👥 Audience segmentation at scale</span>
+          </div>
           <div class="exp-tags">
             <span class="tag">Go</span>
             <span class="tag">Kafka</span>
@@ -776,10 +721,15 @@
             <div class="exp-role">Software Engineer</div>
             <div class="exp-period">Jul 2023 – Jul 2024</div>
           </div>
-          <div class="exp-company">Gameskraft · Full-time</div>
+          <div class="exp-company">Gameskraft · Full-time · Bangalore</div>
           <p class="exp-desc">
-            Engineered backend services for <strong>Pocket52</strong>, a real-money online poker platform. Built the <strong>Rewards &amp; Referrals microservices</strong> in Node.js/TypeScript handling high-concurrency transactional flows. Worked on Apache Flink for real-time stream processing of game events and contributed to an API gateway revamp to improve latency and scalability across the platform.
+            Engineered backend services for <strong>Pocket52</strong>, a real-money online poker platform. Built the <strong>Rewards &amp; Referrals microservices</strong> in Node.js/TypeScript handling high-concurrency transactional flows. Worked on Apache Flink for real-time stream processing of game events, and contributed to an API gateway revamp improving latency and scalability platform-wide.
           </p>
+          <div class="exp-impact">
+            <span class="impact-pill">🔁 High-concurrency reward transactions</span>
+            <span class="impact-pill">🌊 Apache Flink stream processing</span>
+            <span class="impact-pill">🚪 API gateway revamp</span>
+          </div>
           <div class="exp-tags">
             <span class="tag">Node.js</span>
             <span class="tag">TypeScript</span>
@@ -794,9 +744,9 @@
             <div class="exp-role">Software Engineer Intern</div>
             <div class="exp-period">Jan 2023 – Jun 2023</div>
           </div>
-          <div class="exp-company">Gameskraft · Internship</div>
+          <div class="exp-company">Gameskraft · Internship · Bangalore</div>
           <p class="exp-desc">
-            Pre-placement internship where I contributed to backend feature development and got exposure to production-grade microservices at scale. Transitioned to a full-time role upon graduation.
+            Pre-placement internship contributing to backend feature development and production-grade microservices. Converted to a full-time offer upon graduation from IIIT Kota.
           </p>
           <div class="exp-tags">
             <span class="tag">Node.js</span>
@@ -814,6 +764,10 @@
           <p class="exp-desc">
             Worked on the <strong>Inventory Capacity Management</strong> system for Gap Inc.'s supply chain engineering team. Built a Kafka-based data flow application to stream and process inventory events, improving observability of capacity constraints across distribution centers.
           </p>
+          <div class="exp-impact">
+            <span class="impact-pill">📦 Kafka inventory event streaming</span>
+            <span class="impact-pill">🏭 Supply chain capacity visibility</span>
+          </div>
           <div class="exp-tags">
             <span class="tag">Kafka</span>
             <span class="tag">Data Engineering</span>
@@ -831,86 +785,123 @@
       <p class="section-label">Tech Stack</p>
       <h2 class="section-title">Skills & Tools</h2>
       <div class="skills-grid">
+
         <div class="skill-card">
-          <div class="skill-icon">🐹</div>
-          <div class="skill-name">Go</div>
-          <div class="skill-type">Backend</div>
+          <div class="skill-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" alt="Go"></div>
+          <div class="skill-info"><div class="skill-name">Go</div><div class="skill-type">Backend</div></div>
         </div>
+
         <div class="skill-card">
-          <div class="skill-icon">🐍</div>
-          <div class="skill-name">Python</div>
-          <div class="skill-type">Backend</div>
+          <div class="skill-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"></div>
+          <div class="skill-info"><div class="skill-name">Python</div><div class="skill-type">Backend</div></div>
         </div>
+
         <div class="skill-card">
-          <div class="skill-icon">📨</div>
-          <div class="skill-name">Kafka</div>
-          <div class="skill-type">Streaming</div>
+          <div class="skill-logo">
+            <svg viewBox="0 0 32 32" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="32" height="32" rx="6" fill="#231F20"/>
+              <path d="M16 6L6 11.5V20.5L16 26L26 20.5V11.5L16 6Z" fill="#FFFFFF" opacity="0.1"/>
+              <text x="16" y="21" text-anchor="middle" fill="white" font-size="10" font-family="monospace" font-weight="bold">K</text>
+            </svg>
+          </div>
+          <div class="skill-info"><div class="skill-name">Kafka</div><div class="skill-type">Streaming</div></div>
         </div>
+
         <div class="skill-card">
-          <div class="skill-icon">🔁</div>
-          <div class="skill-name">Airflow</div>
-          <div class="skill-type">Orchestration</div>
+          <div class="skill-logo">
+            <svg viewBox="0 0 32 32" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+              <rect width="32" height="32" rx="6" fill="#017CEE"/>
+              <text x="16" y="22" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="bold">AF</text>
+            </svg>
+          </div>
+          <div class="skill-info"><div class="skill-name">Airflow</div><div class="skill-type">Orchestration</div></div>
         </div>
+
         <div class="skill-card">
-          <div class="skill-icon">⚡</div>
-          <div class="skill-name">gRPC</div>
-          <div class="skill-type">RPC / APIs</div>
+          <div class="skill-logo">
+            <svg viewBox="0 0 32 32" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+              <rect width="32" height="32" rx="6" fill="#244C5A"/>
+              <text x="16" y="22" text-anchor="middle" fill="white" font-size="9" font-family="sans-serif" font-weight="bold">gRPC</text>
+            </svg>
+          </div>
+          <div class="skill-info"><div class="skill-name">gRPC</div><div class="skill-type">RPC / APIs</div></div>
         </div>
+
         <div class="skill-card">
-          <div class="skill-icon">🗄️</div>
-          <div class="skill-name">PostgreSQL</div>
-          <div class="skill-type">Database</div>
+          <div class="skill-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL"></div>
+          <div class="skill-info"><div class="skill-name">PostgreSQL</div><div class="skill-type">Database</div></div>
         </div>
+
         <div class="skill-card">
-          <div class="skill-icon">🚀</div>
-          <div class="skill-name">FastAPI</div>
-          <div class="skill-type">Backend</div>
+          <div class="skill-logo">
+            <svg viewBox="0 0 32 32" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+              <rect width="32" height="32" rx="6" fill="#059669"/>
+              <text x="16" y="22" text-anchor="middle" fill="white" font-size="8" font-family="sans-serif" font-weight="bold">FastAPI</text>
+            </svg>
+          </div>
+          <div class="skill-info"><div class="skill-name">FastAPI</div><div class="skill-type">Backend</div></div>
         </div>
+
         <div class="skill-card">
-          <div class="skill-icon">🌿</div>
-          <div class="skill-name">Celery</div>
-          <div class="skill-type">Task Queue</div>
+          <div class="skill-logo">
+            <svg viewBox="0 0 32 32" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+              <rect width="32" height="32" rx="6" fill="#37814A"/>
+              <text x="16" y="22" text-anchor="middle" fill="white" font-size="8" font-family="sans-serif" font-weight="bold">Celery</text>
+            </svg>
+          </div>
+          <div class="skill-info"><div class="skill-name">Celery</div><div class="skill-type">Task Queue</div></div>
         </div>
+
         <div class="skill-card">
-          <div class="skill-icon">🟨</div>
-          <div class="skill-name">Node.js</div>
-          <div class="skill-type">Backend</div>
+          <div class="skill-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js"></div>
+          <div class="skill-info"><div class="skill-name">Node.js</div><div class="skill-type">Backend</div></div>
         </div>
+
         <div class="skill-card">
-          <div class="skill-icon">🔷</div>
-          <div class="skill-name">TypeScript</div>
-          <div class="skill-type">Language</div>
+          <div class="skill-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript"></div>
+          <div class="skill-info"><div class="skill-name">TypeScript</div><div class="skill-type">Language</div></div>
         </div>
+
         <div class="skill-card">
-          <div class="skill-icon">🌊</div>
-          <div class="skill-name">Apache Flink</div>
-          <div class="skill-type">Stream Processing</div>
+          <div class="skill-logo">
+            <svg viewBox="0 0 32 32" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+              <rect width="32" height="32" rx="6" fill="#E6526F"/>
+              <text x="16" y="22" text-anchor="middle" fill="white" font-size="8" font-family="sans-serif" font-weight="bold">Flink</text>
+            </svg>
+          </div>
+          <div class="skill-info"><div class="skill-name">Apache Flink</div><div class="skill-type">Stream Processing</div></div>
         </div>
+
         <div class="skill-card">
-          <div class="skill-icon">📊</div>
-          <div class="skill-name">Meta Ads API</div>
-          <div class="skill-type">Ad Tech</div>
+          <div class="skill-logo">
+            <svg viewBox="0 0 32 32" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+              <rect width="32" height="32" rx="6" fill="#1877F2"/>
+              <text x="16" y="22" text-anchor="middle" fill="white" font-size="8" font-family="sans-serif" font-weight="bold">Meta</text>
+            </svg>
+          </div>
+          <div class="skill-info"><div class="skill-name">Meta Ads API</div><div class="skill-type">Ad Tech</div></div>
         </div>
+
         <div class="skill-card">
-          <div class="skill-icon">⚛️</div>
-          <div class="skill-name">React.js</div>
-          <div class="skill-type">Frontend</div>
+          <div class="skill-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"></div>
+          <div class="skill-info"><div class="skill-name">React.js</div><div class="skill-type">Frontend</div></div>
         </div>
+
         <div class="skill-card">
-          <div class="skill-icon">🏗️</div>
-          <div class="skill-name">System Design</div>
-          <div class="skill-type">Architecture</div>
+          <div class="skill-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker"></div>
+          <div class="skill-info"><div class="skill-name">Docker</div><div class="skill-type">Infrastructure</div></div>
         </div>
+
         <div class="skill-card">
-          <div class="skill-icon">🔗</div>
-          <div class="skill-name">Distributed Systems</div>
-          <div class="skill-type">Architecture</div>
+          <div class="skill-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes"></div>
+          <div class="skill-info"><div class="skill-name">Kubernetes</div><div class="skill-type">Infrastructure</div></div>
         </div>
+
         <div class="skill-card">
-          <div class="skill-icon">🐳</div>
-          <div class="skill-name">Docker / K8s</div>
-          <div class="skill-type">Infrastructure</div>
+          <div class="skill-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis"></div>
+          <div class="skill-info"><div class="skill-name">Redis</div><div class="skill-type">Cache / State</div></div>
         </div>
+
       </div>
     </div>
   </section>
@@ -923,66 +914,38 @@
       <div class="projects-grid">
 
         <div class="project-card">
-          <div class="project-header">
-            <div class="project-icon">📣</div>
-          </div>
+          <div class="project-icon">📣</div>
           <div class="project-name">MediaMax — Off-Platform Ads</div>
-          <p class="project-desc">
-            Off-platform advertising infrastructure at Blinkit enabling brands to run Meta and Google campaigns with Blinkit's first-party audience data. Built Go/gRPC services and Kafka pipelines for campaign delivery and event attribution at scale.
-          </p>
+          <p class="project-desc">Off-platform advertising infrastructure at Blinkit enabling brands to run Meta and Google campaigns with Blinkit's first-party audience data. Built Go/gRPC services and Kafka pipelines for campaign delivery and event attribution at scale.</p>
           <div class="exp-tags">
-            <span class="tag">Go</span>
-            <span class="tag">gRPC</span>
-            <span class="tag">Kafka</span>
-            <span class="tag">Meta Ads API</span>
+            <span class="tag">Go</span><span class="tag">gRPC</span><span class="tag">Kafka</span><span class="tag">Meta Ads API</span>
           </div>
         </div>
 
         <div class="project-card">
-          <div class="project-header">
-            <div class="project-icon">🏪</div>
-          </div>
+          <div class="project-icon">🏪</div>
           <div class="project-name">Brand Central — Self-Serve Ads</div>
-          <p class="project-desc">
-            Self-serve on-platform advertising platform for Blinkit built with Python/FastAPI. Enables brands to independently create, manage, and track ad campaigns on Blinkit. Powers sponsored product listings and banner ads.
-          </p>
+          <p class="project-desc">Self-serve on-platform advertising platform for Blinkit built with Python/FastAPI. Enables brands to independently create, manage, and track ad campaigns. Powers sponsored product listings and banner ads across the app.</p>
           <div class="exp-tags">
-            <span class="tag">Python</span>
-            <span class="tag">FastAPI</span>
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">Celery</span>
+            <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Celery</span>
           </div>
         </div>
 
         <div class="project-card">
-          <div class="project-header">
-            <div class="project-icon">�</div>
-          </div>
+          <div class="project-icon">📈</div>
           <div class="project-name">Brand Insights Dashboard</div>
-          <p class="project-desc">
-            Real-time analytics dashboard for brand advertisers showing Share of Voice (SOV) and Add-to-Cart (ATC) metrics. Built async data pipeline with Celery workers and Airflow DAGs to aggregate and surface campaign performance data.
-          </p>
+          <p class="project-desc">Real-time analytics dashboard for brand advertisers showing Share of Voice (SOV) and Add-to-Cart (ATC) metrics. Built async data pipeline with Celery workers and Airflow DAGs to aggregate and surface campaign performance.</p>
           <div class="exp-tags">
-            <span class="tag">Celery</span>
-            <span class="tag">Airflow</span>
-            <span class="tag">Python</span>
-            <span class="tag">Data Pipelines</span>
+            <span class="tag">Celery</span><span class="tag">Airflow</span><span class="tag">Python</span><span class="tag">Data Pipelines</span>
           </div>
         </div>
 
         <div class="project-card">
-          <div class="project-header">
-            <div class="project-icon">🃏</div>
-          </div>
+          <div class="project-icon">🃏</div>
           <div class="project-name">Rewards & Referrals — Pocket52</div>
-          <p class="project-desc">
-            High-concurrency Rewards and Referrals microservices for Pocket52, a real-money poker platform. Handled transactional reward flows, referral attribution, and real-time game event streaming with Apache Flink and Node.js/TypeScript.
-          </p>
+          <p class="project-desc">High-concurrency Rewards and Referrals microservices for Pocket52, a real-money poker platform. Handled transactional reward flows, referral attribution, and real-time game event streaming with Apache Flink and Node.js/TypeScript.</p>
           <div class="exp-tags">
-            <span class="tag">Node.js</span>
-            <span class="tag">TypeScript</span>
-            <span class="tag">Apache Flink</span>
-            <span class="tag">Microservices</span>
+            <span class="tag">Node.js</span><span class="tag">TypeScript</span><span class="tag">Apache Flink</span><span class="tag">Microservices</span>
           </div>
         </div>
 
@@ -998,27 +961,30 @@
       <div class="contact-card">
         <div>
           <h3 class="contact-title">Open to conversations.</h3>
-          <p class="contact-sub">Whether it's an interesting engineering problem, a collaboration, or just a chat about distributed systems and ad tech.</p>
+          <p class="contact-sub">Backend SDE roles, interesting engineering problems, or just a chat about distributed systems and ad tech.</p>
         </div>
         <div class="contact-links">
           <a href="mailto:mangal.arpit.19@gmail.com" class="contact-link">
             <div class="contact-link-icon">✉️</div>
             mangal.arpit.19@gmail.com
           </a>
-          <a href="https://linkedin.com/in/parth-mangal" target="_blank" class="contact-link">
+          <a href="https://linkedin.com/in/parthmangal" target="_blank" class="contact-link">
             <div class="contact-link-icon">💼</div>
-            linkedin.com/in/parth-mangal
+            linkedin.com/in/parthmangal
           </a>
           <a href="https://github.com/parth-mangal" target="_blank" class="contact-link">
             <div class="contact-link-icon">🐙</div>
             github.com/parth-mangal
+          </a>
+          <a href="https://drive.google.com/file/d/1o_3OsIAllbi-Nl8vUIm1uY5-ppbrz1Kt/view?usp=drive_link" target="_blank" class="contact-link">
+            <div class="contact-link-icon">📄</div>
+            Download Resume
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="container">
       <p>Built by Parth Mangal · 2025</p>
@@ -1026,36 +992,28 @@
   </footer>
 
   <script>
-    // Intersection Observer for fade-in animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.exp-card, .skill-card, .project-card, .fade-in').forEach(el => {
+    document.querySelectorAll('.exp-card, .skill-card, .project-card, .achievement-card, .fade-in').forEach(el => {
       observer.observe(el);
     });
 
-    // Active nav highlight on scroll
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
-
     const navObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href') === '#' + entry.target.id) {
-              link.classList.add('active');
-            }
+            if (link.getAttribute('href') === '#' + entry.target.id) link.classList.add('active');
           });
         }
       });
     }, { rootMargin: '-40% 0px -50% 0px' });
-
     sections.forEach(s => navObserver.observe(s));
   </script>
 
