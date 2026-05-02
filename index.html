@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parth Mangal — SDE II @ Blinkit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F4F6F8;
+      --card: #FFFFFF;
+      --border: #E5E7EB;
+      --text: #1C1C1E;
+      --muted: #6B7280;
+      --light: #9CA3AF;
+      --yellow: #FFC200;
+      --yellow-pale: #FFFBEB;
+      --yellow-border: #FDE68A;
+      --green: #16A34A;
+      --blue: #3B82F6;
+      --purple: #7C3AED;
+      --red: #EF4444;
+      --nav-h: 60px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      z-index: 1000;
+    }
+
+    .nav-logo {
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: -0.3px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-logo span {
+      display: inline-block;
+      background: var(--yellow);
+      color: #000;
+      border-radius: 4px;
+      padding: 1px 6px;
+      margin-right: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.15s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    .nav-cta {
+      background: var(--text) !important;
+      color: #fff !important;
+      border-radius: 7px !important;
+    }
+
+    .nav-cta:hover {
+      background: #333 !important;
+      color: #fff !important;
+    }
+
+    /* ── LAYOUT ── */
+    main { padding-top: var(--nav-h); }
+
+    section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 72px 24px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    h2.section-title {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--text);
+      margin-bottom: 32px;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      padding-top: calc(var(--nav-h) + 64px);
+      padding-bottom: 72px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--yellow-pale);
+      border: 1px solid var(--yellow-border);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #92400E;
+      margin-bottom: 20px;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--yellow);
+      flex-shrink: 0;
+    }
+
+    h1 {
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    h1 .highlight {
+      color: var(--yellow);
+    }
+
+    .hero-desc {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 28px;
+      max-width: 400px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.15s;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: var(--text);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #333;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: #ccc;
+      transform: translateY(-1px);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      transition: all 0.2s;
+    }
+
+    .stat-card:hover {
+      border-color: var(--yellow-border);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+      transform: translateY(-2px);
+    }
+
+    .stat-card .label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 6px;
+    }
+
+    .stat-card .value {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-card .sub {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .stat-card.yellow { border-top: 3px solid var(--yellow); }
+    .stat-card.green  { border-top: 3px solid var(--green); }
+    .stat-card.blue   { border-top: 3px solid var(--blue); }
+    .stat-card.purple { border-top: 3px solid var(--purple); }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    /* ── ABOUT ── */
+    #about .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+
+    .about-text p strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 20px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 3px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    /* ── EXPERIENCE ── */
+    #experience .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .exp-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid transparent;
+      border-radius: 10px;
+      padding: 20px 22px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+      transition: all 0.2s;
+      cursor: default;
+    }
+
+    .exp-card:hover, .exp-card.active {
+      border-left-color: var(--yellow);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .exp-role {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.2px;
+    }
+
+    .exp-company {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--yellow);
+      margin-top: 2px;
+    }
+
+    .exp-meta {
+      text-align: right;
+    }
+
+    .exp-period {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .exp-location {
+      font-size: 11px;
+      color: var(--light);
+      margin-top: 2px;
+    }
+
+    .exp-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .exp-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .chip {
+      display: inline-block;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.2px;
+    }
+
+    /* ── SKILLS ── */
+    #skills .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      text-align: center;
+      transition: all 0.2s;
+      cursor: default;
+    }
+
+    .skill-card:hover {
+      border-color: var(--yellow-border);
+      background: var(--yellow-pale);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .skill-icon {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .skill-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.1px;
+    }
+
+    .skill-level {
+      font-size: 11px;
+      color: var(--light);
+      margin-top: 2px;
+    }
+
+    /* ── PROJECTS ── */
+    #projects .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .proj-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      transition: all 0.2s;
+    }
+
+    .proj-card:hover {
+      border-color: #ccc;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+
+    .proj-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .proj-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .proj-links {
+      display: flex;
+      gap: 6px;
+    }
+
+    .proj-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      transition: all 0.15s;
+    }
+
+    .proj-link:hover {
+      border-color: var(--text);
+      color: var(--text);
+    }
+
+    .proj-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      letter-spacing: -0.2px;
+    }
+
+    .proj-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    /* ── CONTACT ── */
+    #contact .contact-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 48px;
+      text-align: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+
+    #contact h2 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      margin-bottom: 10px;
+    }
+
+    #contact .sub {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      background: var(--bg);
+      transition: all 0.15s;
+    }
+
+    .contact-link:hover {
+      border-color: var(--yellow-border);
+      background: var(--yellow-pale);
+      transform: translateY(-1px);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 12px;
+      color: var(--light);
+    }
+
+    footer span {
+      color: var(--yellow);
+    }
+
+    /* ── FADE IN ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+
+      #hero {
+        grid-template-columns: 1fr;
+        padding-top: calc(var(--nav-h) + 32px);
+        gap: 32px;
+      }
+
+      h1 { font-size: 32px; }
+
+      #about .about-grid,
+      #projects .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #skills .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      #contact .contact-card {
+        padding: 32px 20px;
+      }
+
+      section { padding: 48px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    <span>PM</span>SDE II · Blinkit
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-badge">Open to Opportunities · Backend &amp; Infra</div>
+    <h1>Parth<br>Mangal<span class="highlight">.</span></h1>
+    <p class="hero-desc">
+      SDE II at Blinkit (Zomato) building high-scale backend systems.
+      Crafting infrastructure that handles millions of real-time operations
+      across India's fastest growing quick-commerce platform.
+    </p>
+    <div class="hero-actions">
+      <a href="https://linkedin.com/in/parth-mangal-1019" class="btn btn-primary" target="_blank">
+        ↗ LinkedIn
+      </a>
+      <a href="https://github.com/parth-mangal" class="btn btn-secondary" target="_blank">
+        GitHub
+      </a>
+      <a href="mailto:mangal.arpit.19@gmail.com" class="btn btn-secondary">
+        Email
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-card yellow fade-in">
+      <div class="label">Current Role</div>
+      <div class="value" style="font-size:18px;letter-spacing:-0.5px;">SDE II</div>
+      <div class="sub">Blinkit · Ads Platform</div>
+    </div>
+    <div class="stat-card green fade-in" style="transition-delay:0.1s">
+      <div class="label">Experience</div>
+      <div class="value">3+</div>
+      <div class="sub">Years in Backend</div>
+    </div>
+    <div class="stat-card blue fade-in" style="transition-delay:0.2s">
+      <div class="label">Systems Built</div>
+      <div class="value">10+</div>
+      <div class="sub">Production Services</div>
+    </div>
+    <div class="stat-card purple fade-in" style="transition-delay:0.3s">
+      <div class="label">Stack</div>
+      <div class="value" style="font-size:15px;letter-spacing:0;">Go · K8s</div>
+      <div class="sub">Kafka · Redis · MySQL</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">About</div>
+  <h2 class="section-title">Building systems at scale</h2>
+  <div class="about-grid">
+    <div class="about-text fade-in">
+      <p>
+        I'm a backend engineer at <strong>Blinkit</strong> (part of Zomato), working on the
+        Ads Intelligence platform. I design and build distributed systems that power
+        advertiser campaigns across India's #1 quick commerce platform.
+      </p>
+      <p>
+        My work spans <strong>real-time bidding engines</strong>, <strong>event streaming pipelines</strong>,
+        and <strong>high-throughput APIs</strong> — systems that need to be fast, reliable,
+        and scalable by design.
+      </p>
+      <p>
+        Before Blinkit, I worked at <strong>Fareye</strong> on logistics SaaS. I hold a B.Tech
+        in Computer Science from <strong>VIT University</strong>.
+      </p>
+      <div class="about-tags">
+        <span class="tag">Backend Engineering</span>
+        <span class="tag">Distributed Systems</span>
+        <span class="tag">Real-time Processing</span>
+        <span class="tag">Ad Tech</span>
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Golang</span>
+      </div>
+    </div>
+    <div class="about-stats fade-in" style="transition-delay:0.15s">
+      <div class="stat-card">
+        <div class="label">Location</div>
+        <div class="value" style="font-size:18px;">Gurugram</div>
+        <div class="sub">India 🇮🇳</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Education</div>
+        <div class="value" style="font-size:15px;letter-spacing:-0.3px;">VIT</div>
+        <div class="sub">B.Tech · CSE · 2022</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Availability</div>
+        <div class="value" style="font-size:14px;letter-spacing:0;color:var(--green);">Open</div>
+        <div class="sub">For SDE-2/3 roles</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Topmate</div>
+        <div class="value" style="font-size:14px;letter-spacing:0;">Mentoring</div>
+        <div class="sub">1:1 sessions available</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Experience</div>
+  <h2 class="section-title">Where I've worked</h2>
+  <div class="exp-list">
+
+    <div class="exp-card active fade-in">
+      <div class="exp-header">
+        <div>
+          <div class="exp-role">Software Development Engineer II</div>
+          <div class="exp-company">Blinkit (Zomato)</div>
+        </div>
+        <div class="exp-meta">
+          <div class="exp-period">Jan 2024 — Present</div>
+          <div class="exp-location">Gurugram, India</div>
+        </div>
+      </div>
+      <p class="exp-desc">
+        Building the Ads Intelligence platform — a real-time advertising system that powers
+        sponsored listings and brand campaigns across Blinkit's 10-minute delivery network.
+        Designed event-driven pipelines for impression tracking, billing engines, and
+        campaign management APIs handling millions of daily transactions.
+      </p>
+      <div class="exp-chips">
+        <span class="chip">Go</span>
+        <span class="chip">Kubernetes</span>
+        <span class="chip">Kafka</span>
+        <span class="chip">Redis</span>
+        <span class="chip">MySQL</span>
+        <span class="chip">gRPC</span>
+        <span class="chip">ClickHouse</span>
+        <span class="chip">Prometheus</span>
+      </div>
+    </div>
+
+    <div class="exp-card fade-in" style="transition-delay:0.1s">
+      <div class="exp-header">
+        <div>
+          <div class="exp-role">Software Development Engineer I</div>
+          <div class="exp-company">Blinkit (Zomato)</div>
+        </div>
+        <div class="exp-meta">
+          <div class="exp-period">Aug 2022 — Dec 2023</div>
+          <div class="exp-location">Gurugram, India</div>
+        </div>
+      </div>
+      <p class="exp-desc">
+        Joined the Ads team fresh out of college and contributed to core backend services
+        for ad serving and campaign configuration. Built internal tooling for campaign
+        management and improved API performance through query optimisation and caching strategies.
+      </p>
+      <div class="exp-chips">
+        <span class="chip">Go</span>
+        <span class="chip">MySQL</span>
+        <span class="chip">Redis</span>
+        <span class="chip">REST APIs</span>
+        <span class="chip">Docker</span>
+        <span class="chip">AWS</span>
+      </div>
+    </div>
+
+    <div class="exp-card fade-in" style="transition-delay:0.2s">
+      <div class="exp-header">
+        <div>
+          <div class="exp-role">Software Engineer Intern</div>
+          <div class="exp-company">Fareye Technologies</div>
+        </div>
+        <div class="exp-meta">
+          <div class="exp-period">Jan 2022 — Jun 2022</div>
+          <div class="exp-location">Noida, India</div>
+        </div>
+      </div>
+      <p class="exp-desc">
+        Worked on the logistics SaaS platform — built API integrations for last-mile delivery
+        tracking and contributed to the notification service that sends real-time delivery
+        updates to end customers.
+      </p>
+      <div class="exp-chips">
+        <span class="chip">Java</span>
+        <span class="chip">Spring Boot</span>
+        <span class="chip">PostgreSQL</span>
+        <span class="chip">REST APIs</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Skills</div>
+  <h2 class="section-title">Technologies &amp; tools</h2>
+  <div class="skills-grid">
+    <div class="skill-card fade-in">
+      <div class="skill-icon">🐹</div>
+      <div class="skill-name">Go</div>
+      <div class="skill-level">Primary Language</div>
+    </div>
+    <div class="skill-card fade-in" style="transition-delay:0.05s">
+      <div class="skill-icon">☸️</div>
+      <div class="skill-name">Kubernetes</div>
+      <div class="skill-level">Container Orchestration</div>
+    </div>
+    <div class="skill-card fade-in" style="transition-delay:0.1s">
+      <div class="skill-icon">📨</div>
+      <div class="skill-name">Kafka</div>
+      <div class="skill-level">Event Streaming</div>
+    </div>
+    <div class="skill-card fade-in" style="transition-delay:0.15s">
+      <div class="skill-icon">⚡</div>
+      <div class="skill-name">Redis</div>
+      <div class="skill-level">Caching &amp; Pub/Sub</div>
+    </div>
+    <div class="skill-card fade-in" style="transition-delay:0.2s">
+      <div class="skill-icon">🗄️</div>
+      <div class="skill-name">MySQL</div>
+      <div class="skill-level">Relational DB</div>
+    </div>
+    <div class="skill-card fade-in" style="transition-delay:0.25s">
+      <div class="skill-icon">📊</div>
+      <div class="skill-name">ClickHouse</div>
+      <div class="skill-level">Analytics DB</div>
+    </div>
+    <div class="skill-card fade-in" style="transition-delay:0.3s">
+      <div class="skill-icon">🔗</div>
+      <div class="skill-name">gRPC</div>
+      <div class="skill-level">RPC Framework</div>
+    </div>
+    <div class="skill-card fade-in" style="transition-delay:0.35s">
+      <div class="skill-icon">🐳</div>
+      <div class="skill-name">Docker</div>
+      <div class="skill-level">Containerisation</div>
+    </div>
+    <div class="skill-card fade-in" style="transition-delay:0.4s">
+      <div class="skill-icon">☁️</div>
+      <div class="skill-name">AWS</div>
+      <div class="skill-level">Cloud Platform</div>
+    </div>
+    <div class="skill-card fade-in" style="transition-delay:0.45s">
+      <div class="skill-icon">📈</div>
+      <div class="skill-name">Prometheus</div>
+      <div class="skill-level">Monitoring</div>
+    </div>
+    <div class="skill-card fade-in" style="transition-delay:0.5s">
+      <div class="skill-icon">🔍</div>
+      <div class="skill-name">Elasticsearch</div>
+      <div class="skill-level">Search &amp; Analytics</div>
+    </div>
+    <div class="skill-card fade-in" style="transition-delay:0.55s">
+      <div class="skill-icon">🐘</div>
+      <div class="skill-name">PostgreSQL</div>
+      <div class="skill-level">Relational DB</div>
+    </div>
+    <div class="skill-card fade-in" style="transition-delay:0.6s">
+      <div class="skill-icon">☕</div>
+      <div class="skill-name">Java</div>
+      <div class="skill-level">Spring Boot</div>
+    </div>
+    <div class="skill-card fade-in" style="transition-delay:0.65s">
+      <div class="skill-icon">🐍</div>
+      <div class="skill-name">Python</div>
+      <div class="skill-level">Scripting &amp; Tools</div>
+    </div>
+    <div class="skill-card fade-in" style="transition-delay:0.7s">
+      <div class="skill-icon">🔄</div>
+      <div class="skill-name">CI/CD</div>
+      <div class="skill-level">GitHub Actions</div>
+    </div>
+    <div class="skill-card fade-in" style="transition-delay:0.75s">
+      <div class="skill-icon">🛠️</div>
+      <div class="skill-name">System Design</div>
+      <div class="skill-level">Distributed Systems</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Projects</div>
+  <h2 class="section-title">Things I've built</h2>
+  <div class="projects-grid">
+
+    <div class="proj-card fade-in">
+      <div class="proj-header">
+        <div class="proj-icon" style="background:#FFFBEB;">📡</div>
+        <div class="proj-links">
+          <a href="https://github.com/parth-mangal" class="proj-link" target="_blank" title="GitHub">↗</a>
+        </div>
+      </div>
+      <div class="proj-name">Real-time Ad Bidding Engine</div>
+      <p class="proj-desc">
+        High-throughput bidding system for Blinkit Ads — evaluates thousands of ad candidates
+        per request in under 50ms using in-memory scoring and Redis-backed auction state.
+      </p>
+      <div class="exp-chips">
+        <span class="chip">Go</span>
+        <span class="chip">Redis</span>
+        <span class="chip">gRPC</span>
+        <span class="chip">Kafka</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-in" style="transition-delay:0.1s">
+      <div class="proj-header">
+        <div class="proj-icon" style="background:#EFF6FF;">📊</div>
+        <div class="proj-links">
+          <a href="https://github.com/parth-mangal" class="proj-link" target="_blank" title="GitHub">↗</a>
+        </div>
+      </div>
+      <div class="proj-name">Campaign Analytics Pipeline</div>
+      <p class="proj-desc">
+        Event-driven pipeline ingesting impression/click/conversion events from Kafka into
+        ClickHouse for advertiser reporting dashboards with sub-minute data freshness.
+      </p>
+      <div class="exp-chips">
+        <span class="chip">Kafka</span>
+        <span class="chip">ClickHouse</span>
+        <span class="chip">Go</span>
+        <span class="chip">Grafana</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-in" style="transition-delay:0.2s">
+      <div class="proj-header">
+        <div class="proj-icon" style="background:#F0FDF4;">🚚</div>
+        <div class="proj-links">
+          <a href="https://github.com/parth-mangal" class="proj-link" target="_blank" title="GitHub">↗</a>
+        </div>
+      </div>
+      <div class="proj-name">Delivery Tracking Notification Service</div>
+      <p class="proj-desc">
+        Built at Fareye — microservice handling real-time delivery status notifications via
+        SMS, push, and email with webhook delivery guarantees and retry logic.
+      </p>
+      <div class="exp-chips">
+        <span class="chip">Java</span>
+        <span class="chip">Spring Boot</span>
+        <span class="chip">PostgreSQL</span>
+        <span class="chip">RabbitMQ</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-in" style="transition-delay:0.3s">
+      <div class="proj-header">
+        <div class="proj-icon" style="background:#FAF5FF;">🤖</div>
+        <div class="proj-links">
+          <a href="https://topmate.io/parth_mangal" class="proj-link" target="_blank" title="Topmate">↗</a>
+        </div>
+      </div>
+      <div class="proj-name">1:1 Engineering Mentorship</div>
+      <p class="proj-desc">
+        Providing mentorship via Topmate — mock interviews, system design, career guidance,
+        and code reviews for engineers targeting product companies and FAANG.
+      </p>
+      <div class="exp-chips">
+        <span class="chip">System Design</span>
+        <span class="chip">DSA</span>
+        <span class="chip">Career</span>
+        <span class="chip">Topmate</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="max-width:700px;">
+  <div class="contact-card fade-in">
+    <div class="section-label" style="justify-content:center;display:flex;">Contact</div>
+    <h2>Let's work together<span style="color:var(--yellow)">.</span></h2>
+    <p class="sub">
+      Open to SDE-2/3 backend roles, consulting, and mentorship.
+      Feel free to reach out on any platform below.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:mangal.arpit.19@gmail.com" class="contact-link">
+        ✉️ mangal.arpit.19@gmail.com
+      </a>
+      <a href="https://linkedin.com/in/parth-mangal-1019" class="contact-link" target="_blank">
+        💼 LinkedIn
+      </a>
+      <a href="https://github.com/parth-mangal" class="contact-link" target="_blank">
+        🐙 GitHub
+      </a>
+      <a href="https://topmate.io/parth_mangal" class="contact-link" target="_blank">
+        📅 Topmate
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>Built by <span>Parth Mangal</span> · SDE II @ Blinkit · 2025</p>
+</footer>
+
+<script>
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Active nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 80) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--text)' : '';
+      a.style.fontWeight = a.getAttribute('href') === '#' + current ? '700' : '';
+    });
+  }, { passive: true });
+</script>
+
+</body>
+</html>
